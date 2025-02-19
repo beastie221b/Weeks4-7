@@ -18,7 +18,9 @@ public class FireCannon : MonoBehaviour
         // fire the ball when button is clicked
         if (fired)
         {
-            Instantiate(cannonBall, transform.position, transform.rotation);
+           GameObject newCannonBall = Instantiate(cannonBall, transform.position, transform.rotation);
+           CannonBall ball = newCannonBall.GetComponent<CannonBall>();
+            ball.parent = gameObject;
         }
         // reset fired
         fired = false;
