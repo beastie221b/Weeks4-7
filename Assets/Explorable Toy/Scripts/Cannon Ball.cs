@@ -26,7 +26,6 @@ public class CannonBall : MonoBehaviour
         // Get cannon ball screen position
         Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 
-        // Destroy cannon ball if it flies out of the screen
         Vector3 rotation = transform.rotation.eulerAngles;
 
         // Set the random colour to cannon balls

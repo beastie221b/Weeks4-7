@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     public GameObject barrel;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
