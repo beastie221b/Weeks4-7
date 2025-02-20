@@ -6,10 +6,13 @@ public class FireCannon : MonoBehaviour
 {
     // Cannon ball prefeb 
     public GameObject cannonBall;
+    public float time;
+    // Reload for 5 seconds
+    float reload_time = 2f;
     bool fired = false;
     void Start()
     {
-        
+        time = reload_time;
     }
 
     // Update is called once per frame
@@ -22,13 +25,23 @@ public class FireCannon : MonoBehaviour
            CannonBall ball = newCannonBall.GetComponent<CannonBall>();
             ball.parent = gameObject;
         }
-        // reset fired
+        // Reload the cannon ball
+        if (time < reload_time)
+        {
+            time += Time.deltaTime;
+        }
+        // Reset fired
         fired = false;
     }
 
     // A function to trigger fire
     public void fire()
     {
-        fired = true;
+        // If reload is completed
+        if (time >= reload_time)
+        {
+            fired = true;
+            time = 0;
+        }
     }
 }
